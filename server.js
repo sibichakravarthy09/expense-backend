@@ -7,7 +7,7 @@ const app = express();
 
 // CORS Configuration - Fixed for JWT
 const corsOptions = {
-  origin: 'http://localhost:3000',  // Frontend URL
+  origin: 'https://expensefrontend-1.netlify.app/',  // Frontend URL
   credentials: true,                 // Allow credentials (for cookies if needed)
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
