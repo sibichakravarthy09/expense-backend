@@ -5,13 +5,13 @@ require('dotenv').config();
 
 const app = express();
 
-// CORS Configuration - Fixed for JWT
+// ✅ Fixed CORS Configuration (no trailing slash)
 const corsOptions = {
-  origin: 'https://expensefrontend-1.netlify.app/',  // Frontend URL
-  credentials: true,                 // Allow credentials (for cookies if needed)
+  origin: 'https://expensefrontend-1.netlify.app',  // ✅ exact match, no slash
+  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization'],
-  optionsSuccessStatus: 200
+  optionsSuccessStatus: 200,
 };
 
 app.use(cors(corsOptions));
@@ -46,5 +46,5 @@ app.use((err, req, res, next) => {
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
-  console.log(`📍 CORS enabled for: http://localhost:3000`);
+  console.log(`📍 CORS enabled for: ${corsOptions.origin}`);
 });
